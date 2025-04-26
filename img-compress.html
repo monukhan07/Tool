@@ -3,226 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Compress images and convert JPG to PDF online. Free, fast, and SEO-optimized.">
-  <meta name="keywords" content="Image Compressor, JPG to PDF, Optimize Images, Convert JPG">
-  <meta name="author" content="YourSiteName">
-  <title>Fast Image Compressor & JPG to PDF Tool</title>
+  <meta name="description" content="Free Online Tools for Images, PDFs, and Documents. Compress images, edit PDFs, and more.">
+  <meta name="keywords" content="image compressor, pdf tools, online editor, compress images, free tools">
+  <meta name="author" content="YourWebsiteName">
+  <meta property="og:title" content="YourWebsiteName - Free Online Tools">
+  <meta property="og:description" content="Compress images, edit PDFs, and more with our free online tools.">
+  <meta property="og:image" content="URL-to-your-image">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <title>Home - Your Tools Website</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- jsPDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-ADSENSE-CLIENT-ID" crossorigin="anonymous"></script>
 
   <style>
-    .ad-slot {
-      background: #e2e8f0;
-      border: 2px dashed #cbd5e0;
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #6366f1;
+      --background: #f9fafb;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --card-bg: #ffffff;
+      --shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
       text-align: center;
-      padding: 30px;
-      margin: 20px 0;
+      padding: 4rem 1rem 5rem;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .drag-over {
-      border-color: #3b82f6;
-      background-color: #eff6ff;
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
     }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      margin-top: 2rem;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      background: #fff;
+      color: var(--primary);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      margin: 0 10px;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+    }
+
+    .hero-buttons a:hover {
+      background: var(--primary-light);
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(79,70,229,0.2);
+    }
+
+    .tool-card img {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .tool-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .tool-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 3rem 1rem;
+      margin: 4rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .tool-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .tool-section p {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+
+    .upload-section {
+      text-align: center;
+    }
+
+    input[type="file"], input[type="range"] {
+      margin: 15px 0;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 12px 30px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: var(--primary-light);
+    }
+
+    .ads-space {
+      width: 100%;
+      margin: 2rem 0;
+      height: 100px;
+      background: #e5e7eb;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-buttons a {
+        margin: 0.5rem 0;
+        display: inline-block;
+      }
+    }
+
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
 
-  <!-- Header -->
-  <header class="bg-white shadow p-6 text-center">
-    <h1 class="text-4xl font-bold">Image Compressor & JPG to PDF</h1>
-    <p class="text-lg text-gray-600 mt-2">Optimize your images and convert JPGs to PDFs easily.</p>
-  </header>
-
-  <!-- Ad Space -->
-  <div class="ad-slot">
-    <!-- Insert Google AdSense here -->
-    Ad Space (Responsive 728x90)
+<!-- Header / Hero Section -->
+<header>
+  <h1>YourWebsiteName</h1>
+  <p>Free Online Tools for Everyday Use - Fast & Reliable</p>
+  <div class="hero-buttons">
+    <a href="#tools">Browse Tools</a>
+    <a href="#compressor">Start Compressing</a>
   </div>
+</header>
 
-  <!-- Main Section -->
-  <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+<main>
 
-    <!-- Image Compressor Card -->
-    <section class="bg-white rounded-2xl shadow-lg p-6 transition hover:shadow-2xl">
-      <h2 class="text-2xl font-semibold mb-4">Image Compression</h2>
+  <!-- AdSense Space -->
+  <div class="ads-space">Advertisement</div>
 
-      <div id="drop-area" class="border-2 border-dashed border-gray-400 rounded-lg p-8 text-center cursor-pointer transition hover:border-blue-500 mb-4">
-        <p class="text-gray-500">Drag & Drop an Image or Click to Upload</p>
-        <input type="file" id="imageInput" accept="image/*" class="hidden">
+  <!-- Tools Grid -->
+  <section id="tools" class="tools-grid">
+    <a href="#compressor">
+      <div class="tool-card">
+        <img src="compressor-icon.png" alt="Image Compressor">
+        <h3>Image Compressor</h3>
+        <p>Reduce image file size instantly without losing quality.</p>
       </div>
+    </a>
 
-      <label for="quality" class="block mb-2 text-gray-700 font-medium">
-        Compression Quality: <span id="qualityValue">0.7</span>
-      </label>
-      <input type="range" id="quality" min="0.1" max="1" step="0.05" value="0.7" class="w-full mb-4">
-
-      <button onclick="compressImage()" class="w-full py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition">
-        Compress Image
-      </button>
-
-      <div id="compressedResult" class="mt-6 text-center"></div>
-    </section>
-
-    <!-- JPG to PDF Card -->
-    <section class="bg-white rounded-2xl shadow-lg p-6 transition hover:shadow-2xl">
-      <h2 class="text-2xl font-semibold mb-4">JPG to PDF Converter</h2>
-
-      <div id="pdf-drop-area" class="border-2 border-dashed border-gray-400 rounded-lg p-8 text-center cursor-pointer transition hover:border-green-500 mb-4">
-        <p class="text-gray-500">Drag & Drop JPGs or Click to Upload</p>
-        <input type="file" id="pdfImageInput" accept="image/jpeg" multiple class="hidden">
+    <a href="#comingsoon">
+      <div class="tool-card">
+        <img src="pdf-tool-icon.png" alt="PDF Tools">
+        <h3>PDF Tools</h3>
+        <p>Merge, split, and edit PDFs easily (Coming Soon!).</p>
       </div>
+    </a>
 
-      <button onclick="convertToPDF()" class="w-full py-2 bg-green-600 text-white font-bold rounded hover:bg-green-700 transition">
-        Convert to PDF
-      </button>
+    <!-- More tools -->
+  </section>
 
-      <div id="pdfResult" class="mt-6 text-center"></div>
-    </section>
+  <!-- Tool: Image Compressor -->
+  <section id="compressor" class="tool-section">
+    <h2>Image Compressor Tool</h2>
+    <p>Upload an image, set compression level, and download the optimized file.</p>
 
-  </main>
+    <div class="upload-section">
+      <input type="file" id="upload" accept="image/*"><br>
+      <label for="quality">Compression Quality: <span id="qualityValue">70</span>%</label><br>
+      <input type="range" id="quality" min="10" max="100" value="70"><br>
+      <button onclick="compressImage()">Compress Image</button>
+    </div>
 
-  <!-- Ad Slot -->
-  <div class="ad-slot">
-    Ad Slot (336x280)
-  </div>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <div style="text-align:center;">
+      <img id="output" src="" alt="Compressed Image" style="display:none;">
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 p-6 mt-6">
-    © 2025 YourSiteName | All rights reserved.
-  </footer>
+  <!-- AdSense Space -->
+  <div class="ads-space">Advertisement</div>
 
-  <!-- JS Script -->
-  <script>
-    const qualityInput = document.getElementById('quality');
-    const qualityValue = document.getElementById('qualityValue');
-    const dropArea = document.getElementById('drop-area');
-    const pdfDropArea = document.getElementById('pdf-drop-area');
-    const imageInput = document.getElementById('imageInput');
-    const pdfImageInput = document.getElementById('pdfImageInput');
+</main>
 
-    qualityInput.addEventListener('input', () => {
-      qualityValue.textContent = qualityInput.value;
-    });
+<!-- Footer -->
+<footer>
+  &copy; 2025 YourWebsiteName | All Rights Reserved
+</footer>
 
-    dropArea.addEventListener('click', () => imageInput.click());
-    pdfDropArea.addEventListener('click', () => pdfImageInput.click());
+<!-- JavaScript -->
+<script>
+  const upload = document.getElementById('upload');
+  const qualitySlider = document.getElementById('quality');
+  const qualityValue = document.getElementById('qualityValue');
+  const canvas = document.getElementById('canvas');
+  const output = document.getElementById('output');
 
-    // Drag and Drop Events for Image Compressor
-    dropArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      dropArea.classList.add('drag-over');
-    });
-    dropArea.addEventListener('dragleave', () => {
-      dropArea.classList.remove('drag-over');
-    });
-    dropArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      dropArea.classList.remove('drag-over');
-      imageInput.files = e.dataTransfer.files;
-    });
-
-    // Drag and Drop Events for PDF Converter
-    pdfDropArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      pdfDropArea.classList.add('drag-over');
-    });
-    pdfDropArea.addEventListener('dragleave', () => {
-      pdfDropArea.classList.remove('drag-over');
-    });
-    pdfDropArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      pdfDropArea.classList.remove('drag-over');
-      pdfImageInput.files = e.dataTransfer.files;
-    });
-
-    function compressImage() {
-      const input = imageInput.files[0];
-      const quality = parseFloat(qualityInput.value);
-      const resultDiv = document.getElementById('compressedResult');
-
-      if (!input) {
-        alert("Please select an image.");
-        return;
-      }
-
-      resultDiv.innerHTML = '<div class="loader mx-auto my-4">Compressing...</div>';
-
-      const reader = new FileReader();
-      reader.readAsDataURL(input);
-      reader.onload = function (e) {
-        const img = new Image();
-        img.src = e.target.result;
-
-        img.onload = function () {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-
-          const compressedData = canvas.toDataURL('image/jpeg', quality);
-
-          const downloadLink = document.createElement('a');
-          downloadLink.href = compressedData;
-          downloadLink.download = 'compressed-image.jpg';
-          downloadLink.textContent = 'Download Compressed Image';
-          downloadLink.className = "inline-block mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded";
-
-          resultDiv.innerHTML = `<img src="${compressedData}" alt="Compressed Image" class="max-w-full rounded shadow mt-4">`;
-          resultDiv.appendChild(downloadLink);
-        }
-      }
-    }
-
-    async function convertToPDF() {
-      const inputs = pdfImageInput.files;
-      const resultDiv = document.getElementById('pdfResult');
-
-      if (inputs.length === 0) {
-        alert("Please select JPG images.");
-        return;
-      }
-
-      resultDiv.innerHTML = '<div class="loader mx-auto my-4">Generating PDF...</div>';
-
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF();
-
-      for (let i = 0; i < inputs.length; i++) {
-        const file = inputs[i];
-        const imgData = await readFileAsDataURL(file);
-
-        const img = new Image();
-        img.src = imgData;
-
-        await new Promise(resolve => {
-          img.onload = function () {
-            const imgWidth = 210;
-            const imgHeight = (img.height * imgWidth) / img.width;
-            if (i !== 0) pdf.addPage();
-            pdf.addImage(img, 'JPEG', 0, 0, imgWidth, imgHeight);
-            resolve();
-          }
-        });
-      }
-
-      pdf.save('converted-images.pdf');
-      resultDiv.innerHTML = `<p class="text-green-600 mt-4">PDF created and downloaded!</p>`;
-    }
-
-    function readFileAsDataURL(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = (e) => resolve(e.target.result);
-        reader.onerror = (e) => reject(e);
-        reader.readAsDataURL(file);
-      });
-    }
-  </script>
-
-</body>
-</html>
+  qualitySlider.addEventListener('input', () => {
+    qualityValue.textContent = quality
